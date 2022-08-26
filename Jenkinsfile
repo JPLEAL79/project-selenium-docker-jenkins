@@ -14,5 +14,13 @@
 
              }
          }
+
+         stage('Clean'){
+             steps{
+             echo 'clean project...'
+             sh 'mvn -f pom.xml clean'
+
+             }
+         }
      }
  }
