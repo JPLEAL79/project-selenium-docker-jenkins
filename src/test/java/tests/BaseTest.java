@@ -31,8 +31,12 @@ public class BaseTest {
 
     public LoginPage loginPage;
     public HomePage homePage;
+
+
     public static final String WINDOWS_DRIVER_PATH = "src/test/resources/webdrivers/";
+    public static final String UNIX_DRIVER_PATH = "/usr/local/bin/";
     Properties props;
+
 
     @BeforeMethod
     @Parameters("browser")
@@ -42,6 +46,7 @@ public class BaseTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+
 
         driver.get(url);
         driver.manage().window().maximize();
@@ -66,7 +71,7 @@ public class BaseTest {
             basePath = WINDOWS_DRIVER_PATH;
             fileExt = ".exe";
         } else {
-
+            basePath = UNIX_DRIVER_PATH;
         }
 
         if (BrowserType.FIREFOX.contains(browserName)) {
@@ -75,7 +80,8 @@ public class BaseTest {
             FirefoxOptions opts = new FirefoxOptions();
             opts.addArguments("--disable-notifications");
             opts.addArguments("--start-maximized");
-            //return new FirefoxDriver(opts); //Este driver sirve para que corra de manera local
+
+           // return new FirefoxDriver(opts);
             return new RemoteWebDriver(new URL("http://172.17.0.3:4444"),opts);
 
 
@@ -97,7 +103,7 @@ public class BaseTest {
             ChromeOptions opts = new ChromeOptions();
             opts.addArguments("--disable-notifications"); //Opción de Chrome sirve para desactivar notificacion
             opts.addArguments("--start-maximized"); //Opción de Chrome sirve para que inicie maximizado
-            //return new ChromeDriver(); //Esta driver sirve para que corra de manera local
+            //return new ChromeDriver();
             return new RemoteWebDriver(new URL("http://172.17.0.4:4444"),opts);
         }
     }
