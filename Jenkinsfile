@@ -9,7 +9,9 @@
      stages{
          stage('download source code'){
              steps{
-                   echo 'download source...'
+              echo 'download source...'
+              git credentialsId: 'jpleal' , url: 'https://github.com/JPLEAL79/project-selenium-docker-jenkins.git'
+
              }
          }
      }
