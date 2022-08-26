@@ -27,6 +27,7 @@
              steps{
              echo 'Running functional tests...'
              sh 'mvn -f pom.xml test'
+             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
 
            }
         }
