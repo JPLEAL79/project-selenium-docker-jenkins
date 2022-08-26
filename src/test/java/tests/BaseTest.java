@@ -75,7 +75,8 @@ public class BaseTest {
             FirefoxOptions opts = new FirefoxOptions();
             opts.addArguments("--disable-notifications");
             opts.addArguments("--start-maximized");
-            return new FirefoxDriver(opts); //Este driver sirve para que corra de manera local
+            //return new FirefoxDriver(opts); //Este driver sirve para que corra de manera local
+            return new RemoteWebDriver(new URL("http://172.17.0.3:4444"),opts);
 
 
         } else if (BrowserType.SAFARI.contains(browserName)) {
@@ -96,7 +97,8 @@ public class BaseTest {
             ChromeOptions opts = new ChromeOptions();
             opts.addArguments("--disable-notifications"); //Opción de Chrome sirve para desactivar notificacion
             opts.addArguments("--start-maximized"); //Opción de Chrome sirve para que inicie maximizado
-            return new ChromeDriver(); //Esta driver sirve para que corra de manera local
+            //return new ChromeDriver(); //Esta driver sirve para que corra de manera local
+            return new RemoteWebDriver(new URL("http://172.17.0.3:4444"),opts);
         }
     }
 }
