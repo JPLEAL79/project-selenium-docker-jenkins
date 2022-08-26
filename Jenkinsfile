@@ -22,5 +22,13 @@
 
              }
          }
+
+         stage('Functional testing'){
+             steps{
+             echo 'Running functional tests...'
+             sh 'mvn -f pom.xml test'
+
+           }
+        }
      }
  }
