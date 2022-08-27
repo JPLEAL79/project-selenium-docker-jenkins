@@ -32,9 +32,8 @@ public class BaseTest {
     public LoginPage loginPage;
     public HomePage homePage;
 
-
     public static final String WINDOWS_DRIVER_PATH = "src/test/resources/webdrivers/";
-    public static final String UNIX_DRIVER_PATH = "/usr/local/bin/";
+    //public static final String UNIX_DRIVER_PATH = "/usr/local/bin/";
     Properties props;
 
 
@@ -71,7 +70,7 @@ public class BaseTest {
             basePath = WINDOWS_DRIVER_PATH;
             fileExt = ".exe";
         } else {
-            basePath = UNIX_DRIVER_PATH;
+            //basePath = UNIX_DRIVER_PATH;
         }
 
         if (BrowserType.FIREFOX.contains(browserName)) {
